@@ -1,0 +1,14 @@
+.venv/
+venv/
+__pycache__/
+*.pyc
+mlflow.db
+mlartifacts/
+*.db
+*.csv
+*.log
+.DS_Store
+Thumbs.db
+
+# Only ignore the data directory, not models
+data/
