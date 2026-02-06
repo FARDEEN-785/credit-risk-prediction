@@ -1,0 +1,10 @@
+python -m venv env
+env\Scripts\activate  
+# for Windows
+
+# run mlflow
+mlflow ui
+
+#run FastAPI or API
+uvicorn src.api.app:app --reload
+
