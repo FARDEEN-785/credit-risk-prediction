@@ -1,86 +1,101 @@
-# Credit Risk Prediction API
+# Credit Risk Prediction System (MLOps)
 
-A FastAPI-based machine learning service for predicting credit risk using XGBoost.
+A production-grade end-to-end Machine Learning project for predicting credit default risk, built with modern MLOps practices.  
+The system covers the full ML lifecycle: data processing, model training, experiment tracking, model registry, and API-based deployment.
 
-## Features
-- RESTful API for credit risk prediction
-- XGBoost model with proper preprocessing
-- Docker containerization
-- MLflow experiment tracking
+---
 
-## Project Structure
-credit-risk-prediction/
-├── app.py # FastAPI application
-├── train.py # Model training script
-├── requirements.txt # Python dependencies
-├── Dockerfile # Container configuration
-├── test_api_requests.py # API testing
-└── README.md # This file
+## 📌 Project Overview
+
+This project aims to predict whether a loan applicant is likely to default based on demographic, financial, and credit history features.  
+Multiple models were trained and evaluated, with the best-performing model deployed as a REST API.
+
+---
+
+## 🧠 Key Features
+
+- End-to-end ML pipeline (data → model → API)
+- Feature engineering and preprocessing
+- Model comparison and evaluation
+- Experiment tracking and model versioning
+- Production-ready inference API
+
+---
+
+## 🛠️ Tech Stack & Skills
+
+- **Programming**: Python  
+- **Data Processing**: Pandas, NumPy  
+- **Machine Learning**: Scikit-learn, XGBoost  
+- **MLOps**: MLflow (tracking, registry)  
+- **API**: FastAPI, Uvicorn  
+- **Evaluation**: ROC-AUC, Precision, Recall  
+
+---
+
+## 📊 Models Used
+
+- Logistic Regression (baseline)
+- XGBoost Classifier (final model)
+
+**XGBoost achieved higher recall (~71%)**, making it more effective at identifying high-risk borrowers.
+
+---
+
+## 🧪 Experiment Tracking
+
+MLflow is used to:
+- Track experiments and metrics
+- Compare multiple models
+- Register the best-performing model
+
+> Note: MLflow artifacts (`mlruns/`) are generated locally at runtime and are excluded from version control.
+
+---
+
+## 🚀 Project Structure
+
+Credit_risk_2.0/
+│
+├── src/
+│ ├── data/ # Data loading & preprocessing
+│ ├── features/ # Feature engineering
+│ ├── models/ # Training & evaluation scripts
+│ └── api/ # FastAPI inference service
+│
+├── notebooks/ # Exploration & experiments
+├── requirements.txt
+├── README.md
+└── .gitignore
 
 
-## Installation
+---
+
+## 🔮 Running the Project
+
+### 1. Install dependencies
 ```bash
-# Clone repository
-git clone https://github.com/FARDEEN-785/credit-risk-prediction.git
-cd credit-risk-prediction
-
-# Install dependencies
 pip install -r requirements.txt
+2. Train models & log experiments
+python src/models/train.py
+3. Start the API server
+uvicorn src.api.app:app --reload
+4. Test the API
+Open your browser at:
 
-# Train the model (requires data/loan.csv)
-python train.py
+http://127.0.0.1:8000/docs
+🔑 Key Insight
+Gradient-boosted models captured non-linear patterns in credit data better than linear models, significantly improving recall for default prediction — a critical metric in real-world credit risk systems.
 
-# Run the API
-uvicorn app:app --host 0.0.0.0 --port 8000
+📈 Future Improvements
+Data drift and model monitoring
 
-# Or using Docker
-docker build -t credit-risk-api .
-docker run -p 8000:8000 credit-risk-api
+Automated retraining pipelines
 
-API Documentation
-Visit http://localhost:8000/docs for interactive API documentation.
+CI/CD for ML workflows
 
-Model Features
-loan_amnt, int_rate, annual_inc, dti
+Dockerized deployment
 
-open_acc, revol_bal, total_acc
-
-term, grade, emp_length, home_ownership, purpose
-
-
-## Usage Example
-
-Send a POST request to `/predict` with loan details in JSON format:
-
-```json
-{
-    "loan_amnt": 10000,
-    "int_rate": 12.5,
-    "annual_inc": 55000,
-    "dti": 18.2,
-    "open_acc": 5,
-    "revol_bal": 3200,
-    "total_acc": 20,
-    "term": "36 months",
-    "grade": "B",
-    "emp_length": "2 years",
-    "home_ownership": "RENT",
-    "purpose": "debt_consolidation"
-}
-```
-
-Example using `curl`:
-
-```bash
-curl -X POST "http://localhost:8000/predict" \
-         -H "Content-Type: application/json" \
-         -d @sample_request.json
-```
-
-## Contributing
-
-Contributions are welcome! Please open issues or submit pull requests for improvements.
-
-## License
-
-This project is licensed under the MIT License.
+👤 Author
+Fardeen
+Aspiring AI/ML Engineer | Interested in applied ML, MLOps, and data-driven systems
