@@ -5,14 +5,14 @@ The system covers the full ML lifecycle: data processing, model training, experi
 
 ---
 
-## 📌 Project Overview
+##  Project Overview
 
 This project aims to predict whether a loan applicant is likely to default based on demographic, financial, and credit history features.  
 Multiple models were trained and evaluated, with the best-performing model deployed as a REST API.
 
 ---
 
-## 🧠 Key Features
+##  Key Features
 
 - End-to-end ML pipeline (data → model → API)
 - Feature engineering and preprocessing
@@ -22,7 +22,7 @@ Multiple models were trained and evaluated, with the best-performing model deplo
 
 ---
 
-## 🛠️ Tech Stack & Skills
+##  Tech Stack & Skills
 
 - **Programming**: Python  
 - **Data Processing**: Pandas, NumPy  
@@ -33,7 +33,7 @@ Multiple models were trained and evaluated, with the best-performing model deplo
 
 ---
 
-## 📊 Models Used
+##  Models Used
 
 - Logistic Regression (baseline)
 - XGBoost Classifier (final model)
@@ -42,7 +42,7 @@ Multiple models were trained and evaluated, with the best-performing model deplo
 
 ---
 
-## 🧪 Experiment Tracking
+##  Experiment Tracking
 
 MLflow is used to:
 - Track experiments and metrics
@@ -53,7 +53,7 @@ MLflow is used to:
 
 ---
 
-## 🚀 Project Structure
+##  Project Structure
 
 Credit_risk_2.0/
 │
@@ -71,7 +71,7 @@ Credit_risk_2.0/
 
 ---
 
-## 🔮 Running the Project
+## Running the Project
 
 ### 1. Install dependencies
 ```bash
@@ -84,10 +84,10 @@ uvicorn src.api.app:app --reload
 Open your browser at:
 
 http://127.0.0.1:8000/docs
-🔑 Key Insight
+ Key Insight
 Gradient-boosted models captured non-linear patterns in credit data better than linear models, significantly improving recall for default prediction — a critical metric in real-world credit risk systems.
 
-📈 Future Improvements
+ Future Improvements
 Data drift and model monitoring
 
 Automated retraining pipelines
